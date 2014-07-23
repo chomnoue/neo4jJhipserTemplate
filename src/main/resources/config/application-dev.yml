@@ -1,0 +1,63 @@
+server:
+    port: 8080
+
+spring:
+    profiles: dev
+    
+    datasource:
+        dataSourceClassName: org.h2.jdbcx.JdbcDataSource
+        url: jdbc:h2:mem:jhipster
+        databaseName: 
+        serverName: 
+        username: 
+        password:
+
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        database: H2
+        openInView: false
+        show_sql: true
+        generate-ddl: false
+        hibernate:
+            ddl-auto: none
+            naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+        properties:
+            hibernate.cache.use_second_level_cache: false
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: true
+
+    mail:
+        baseUrl: http://localhost:8080
+
+    thymeleaf:
+        mode: XHTML
+        cache: false
+
+metrics:
+    jmx.enabled: true
+    graphite:
+        enabled: false
+        host: localhost
+        port: 2003
+
+cache:
+    timeToLiveSeconds: 3600
+    hazelcast:
+        debug: true
+        stickySession: false
+        backupCount: 1
+
+# You can add as many as folders to watch
+# You just need to add a dash + the directory to watch
+hotReload:
+    enabled: true
+    package:
+      project: com.chomnoue.jhipster.neo4j.template
+      domain: com.chomnoue.jhipster.neo4j.template.domain
+      restdto: com.chomnoue.jhipster.neo4j.template.web.rest.dto
+    liquibase:
+      defaultCatalogName: 
+      defaultSchema: public
+      excludeTables: oauth_access_token,oauth_approvals,oauth_client_details,oauth_client_token,oauth_code,oauth_refresh_token
+    watchdir:
+      - target/classes

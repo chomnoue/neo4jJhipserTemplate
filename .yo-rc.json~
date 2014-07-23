@@ -1,0 +1,18 @@
+{
+  "generator-jhipster": {
+    "baseName": "neo4jJhipserTemplate",
+    "packageName": "com.chomnoue.jhipster.neo4j.template",
+    "packageFolder": "com/chomnoue/jhipster/neo4j/template",
+    "authenticationType": "token",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "hazelcast",
+    "websocket": "atmosphere",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "useCompass": true,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8"
+  }
+}
