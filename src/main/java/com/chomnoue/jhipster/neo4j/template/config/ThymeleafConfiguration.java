@@ -42,6 +42,18 @@ public class ThymeleafConfiguration {
         emailTemplateResolver.setOrder(1);
         return emailTemplateResolver;
     }
+    
+    @Bean
+    @Description("Thymeleaf template resolver serving HTML 5 templates")
+    public ClassLoaderTemplateResolver templatesTemplateResolver() {
+        ClassLoaderTemplateResolver emailTemplateResolver = new ClassLoaderTemplateResolver();
+        emailTemplateResolver.setPrefix("templates/");
+        emailTemplateResolver.setSuffix(".html");
+        emailTemplateResolver.setTemplateMode("HTML5");
+        emailTemplateResolver.setCharacterEncoding(CharEncoding.UTF_8);
+        emailTemplateResolver.setOrder(1);
+        return emailTemplateResolver;
+    }
 
     @Bean
     @Description("Thymeleaf template resolver serving HTML 5")
@@ -60,6 +72,7 @@ public class ThymeleafConfiguration {
     public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.addTemplateResolver(emailTemplateResolver());
+        templateEngine.addTemplateResolver(templatesTemplateResolver());
         templateEngine.addTemplateResolver(webTemplateResolver());
         return templateEngine;
     }

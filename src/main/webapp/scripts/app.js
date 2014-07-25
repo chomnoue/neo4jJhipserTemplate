@@ -185,7 +185,9 @@ neo4jjhipsertemplateApp
                     trackMessageLength : true,
                     reconnectInterval : 5000,
                     enableXDR: true,
-                    timeout : 60000 };
+                    timeout : 60000,
+                    headers:httpHeaders.common
+                };
 
                 $rootScope.websocketRequest.onOpen = function(response) {
                     $rootScope.websocketTransport = response.transport;
@@ -208,7 +210,7 @@ neo4jjhipsertemplateApp
                 $rootScope.websocketRequest.sendMessage = function() {
                     if ($rootScope.websocketSubSocket.request.isOpen) {
                         $rootScope.websocketSubSocket.push(atmosphere.util.stringifyJSON({
-                                userLogin: $rootScope.login,
+                                userLogin: $rootScope.account.login,
                                 page: $route.current.templateUrl}
                         ));
                     }

@@ -162,7 +162,11 @@ neo4jjhipsertemplateApp.controller('SessionsController', ['$scope', 'resolvedSes
             trackMessageLength : true,
             reconnectInterval : 5000,
             enableXDR: true,
-            timeout : 60000 };
+            timeout : 60000,
+            headers:httpHeaders.common,
+            attachHeadersAsQueryString:false,
+            dropHeaders:false
+        };
 
         $scope.trackerRequest.onOpen = function(response) {
             $scope.trackerTransport = response.transport;
